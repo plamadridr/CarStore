@@ -41,4 +41,8 @@ class User extends Authenticatable
     public function tickets(){
         return $this->hasMany('App\Ticket');
     }
+
+    public function products(){
+        return $this->hasMany('App\Product');
+    }
 }

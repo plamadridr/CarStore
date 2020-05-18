@@ -16,4 +16,8 @@ class Product extends Model
     public function ticketproducts(){
         return $this->hasMany('App\TicketProduct');
     }
+
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
 }

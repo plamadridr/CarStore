@@ -21,6 +21,7 @@ class CreateProductsTable extends Migration
             $table->integer('plazas');
             $table->integer('year');
             $table->integer('brand_id');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }
