@@ -24,3 +24,7 @@ Route::get('/product/{id}', function ($id) {
 Route::get('/brand/{id}', function ($id) {
     return App\Brand::find($id)->products;
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
