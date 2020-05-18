@@ -8,4 +8,12 @@ class Product extends Model
 {
     //
     protected $table= 'products';
+
+    public function brand(){
+        return $this->belongsTo('App\Brand');
+    }
+
+    public function ticketproducts(){
+        return $this->hasMany('App\TicketProduct');
+    }
 }

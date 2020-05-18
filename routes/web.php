@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/product/{id}', function ($id) {
+    return App\Product::find($id)->brand;
+});
+
+Route::get('/brand/{id}', function ($id) {
+    return App\Brand::find($id)->products;
+});
