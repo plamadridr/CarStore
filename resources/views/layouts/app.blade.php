@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Car Store') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -23,14 +23,51 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('../../css/styles.css') }}" rel="stylesheet">
+
+    <style>
+        .carCard{
+            min-height:230px;
+            background-size:cover;
+            position:relative;
+        }
+
+        .carInfo{
+            position: absolute;
+            bottom: 0px;
+            left:15px;
+            background-color: #00000066;
+            width: 100%;
+            padding:10px;
+        }
+
+        .carInfo h2{
+            font-size: 18px;
+        }
+
+        .carInfo p{
+            font-size: 14px;
+        }
+
+        .carInfo p, .carInfo h2{
+            margin:0px;
+            width:100%;
+            color:#ffffff;
+        }
+
+        .year{
+            font-size: 25px;
+            color: #ffffff;
+        }
+            
+    </style>
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'Car Store') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -55,6 +92,12 @@
                                 </li>
                             @endif
                         @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="/products">Products</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/products/create">New Product</a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -77,6 +120,14 @@
                 </div>
             </div>
         </nav>
+
+        <section class="py-4">
+            @yield('buscador')
+        <section>
+
+        <section class="py-4">
+            @yield('ordenar')
+        <section>
 
         <main class="py-4">
             @yield('content')
